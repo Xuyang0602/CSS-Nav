@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+
+  <style type="text/css">
+    /*initialize*/
+    
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    
+    body {
+      font-family: verdana, sans-serif;
+      font-size: 14px;
+      background-color: #fff;
+    }
+    
+    #navigation, #navigation li ul {
+      list-style-type: none;
+    }
+    
+    #navigation {}
+    
+    #navigation li {
+      float: left;
+      text-align: center;
+      position: relative;
+    }
+    
+    #navigation li a:link,
+    #navigation li a:visited {
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      width: 60px;
+      line-height: 40px;
+      border: 1px solid #fff;
+      border-width: 1px 1px 0 0;
+      background: #255f9e;
+      padding-left: 10px;
+    }
+    
+    #navigation li a:hover {
+      color: #000;
+      background: #ffb100;
+    }
+    
+    #navigation li ul li a:hover {
+      color: #fff;
+      background: #afb111;
+    }
+    
+    #navigation li ul {
+      display: none;
+      position: absolute;
+      top: 40px;
+      margin-top: 1px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="navigation">
+    <!--<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">-->
+    <li class="item">
+      <a href="#">Menu 1</a>
+      <ul>
+        <li><a href="#">Item 11</a></li>
+        <li><a href="#">Item 12</a></li>
+        <li><a href="#">Item 13</a></li>
+        <li><a href="#">Item 14</a></li>
+      </ul>
+    </li>
+    <li class="item">
+      <a href="#">Menu 2</a>
+      <ul>
+        <li><a href="#">Item 21</a></li>
+        <li><a href="#">Item 22</a></li>
+        <li><a href="#">Item 23</a></li>
+        <li><a href="#">Item 24</a></li>
+        <li><a href="#">Item 25</a></li>
+      </ul>
+    </li>
+    <li class="item">
+      <a href="#">Menu 3</a>
+      <ul>
+        <li><a href="#">Item 31</a></li>
+        <li><a href="#">Item 32</a></li>
+        <li><a href="#">Item 33</a></li>
+        <li><a href="#">Item 34</a></li>
+        <li><a href="#">Item 35</a></li>
+      </ul>
+    </li>
+    <li class="item">
+      <a href="#">Menu 4</a>
+      <ul>
+        <li><a href="#">Item 41</a></li>
+        <li><a href="#">Item 42</a></li>
+        <li><a href="#">Item 43</a></li>
+        <li><a href="#">Item 44</a></li>
+        <li><a href="#">Item 45</a></li>
+      </ul>
+    </li>
+    <li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+      <a href="#">Menu 5</a>
+      <ul>
+        <li><a href="#">Item 51</a></li>
+        <li><a href="#">Item 52</a></li>
+        <li><a href="#">Item 53</a></li>
+        <li><a href="#">Item 54</a></li>
+        <li><a href="#">Item 55</a></li>
+      </ul>
+    </li>
+    <li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+      <a href="#">Menu 6</a>
+      <ul>
+        <li><a href="#">Item 61</a></li>
+        <li><a href="#">Item 62</a></li>
+        <li><a href="#">Item 63</a></li>
+        <li><a href="#">Item 64</a></li>
+        <li><a href="#">Item 65</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <script type="text/javascript" charset="utf-8">
+  
+    // Solution 1
+    (function() {
+      var li = document.getElementsByClassName("item");
+      for (var i = 0; i < li.length; i++) {
+        li[i].addEventListener("mouseenter", function(e) {
+          var sub = e.target.getElementsByTagName("ul")[0];
+          sub.style.display = "block";
+        })
+        
+        li[i].addEventListener("mouseleave", function(e) {
+          var sub = e.target.getElementsByTagName("ul")[0];
+          sub.style.display = "none";
+        })
+      }
+
+    })();
+    
+    // Solution 2
+    function displaySubMenu(li) {
+      var subMenu = li.getElementsByTagName("ul")[0];
+      subMenu.style.display = "block";
+    }
+
+    function hideSubMenu(li) {
+
+      var subMenu = li.getElementsByTagName("ul")[0];
+      subMenu.style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>
